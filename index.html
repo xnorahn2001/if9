@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل عام وانت بالف خير! 🎉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <div id="lock-screen" class="lock-container hidden">
+        <div class="lock-card">
+            <div class="lock-glow"></div>
+            <h1 class="lock-title">باقي على ميلادك ..</h1>
+            
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <span id="timer-days" class="countdown-val">00</span>
+                    <span class="countdown-label">أيام</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="timer-hours" class="countdown-val">00</span>
+                    <span class="countdown-label">ساعات</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="timer-minutes" class="countdown-val">00</span>
+                    <span class="countdown-label">دقائق</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="timer-seconds" class="countdown-val">00</span>
+                    <span class="countdown-label">ثواني</span>
+                </div>
+            </div>
+
+            <p class="lock-hint">الصفحه بتفتح هنا تلقائياً بـ 4 يوليو الساعة 12:00 ص تماماً! 🤫</p>
+            
+            <button id="timer-unlock-btn" class="modern-btn locked-btn">
+                <span>إذا خلص الوقت اضغطني 🎁</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </div>
+
+    <!-- 1. SPLASH SCREEN (Intro & Audio Permission) -->
+    <div id="splash-screen" class="splash-container hidden">
+        <div class="splash-card">
+            <div class="splash-glow"></div>
+            <div class="gift-animation-container">
+                <i class="fa-solid fa-gift floating-gift-icon"></i>
+            </div>
+            <h1 class="splash-title">فيصل</h1>
+            <p class="splash-subtitle">جاهز تشوف وش المتخبي ؟ </p>
+            <p class="splash-hint">ابيك تضغط هنا عشان تشتغل الاغنيه 🎵</p>
+            <button id="start-btn" class="modern-btn">
+                <span>يمديك تفتح الان.. 🚀</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </div>
+
+    <div id="main-content" class="main-container hidden">
+        <button id="music-toggle" class="audio-control-btn" aria-label="Toggle Music">
+            <i class="fa-solid fa-music"></i>
+        </button>
+
+        <header class="app-header">
+            <div class="profile-glow"></div>
+            <span class="birthday-badge">4 يوليو 2026</span>
+            <h1 class="main-title">كل عام وأنت بخير يا والله يجعله عام خفيف ولطيف وتسمع فيه يارب اجمل واحلى الاخبار ياحيي ياقيوم <span class="highlight">فيصل</span>! 🎉</h1>
+            <p class="main-desc"> بهالمناسبه حاولت قد مااقدر اني اقدم شي حلو ومختلف عن العاده لكن ان شاد الله تعجبك 
+                العمر كله يارب  بما انك الان <span class="age-highlight">14 ونص 😉</span> 
+               فا جبت فكره بان على عدد سنوات عمرك فيه بطاقه تشمل شي حلو بنفس الوقت شي ممكن يفيدك وممكن يكون شي لك لحالك مو شرط مشاركه .. انجووي 
+            </p>
+            
+            <div class="progress-container">
+                <div class="progress-bar-wrapper">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">
+                    <span>البطاقات: </span>
+                    <span id="gifts-opened-count" class="counter">0</span> / 27
+                </div>
+            </div>
+        </header>
+
+        <main class="gifts-grid" id="gifts-grid">
+        </main>
+
+        <footer class="app-footer">
+            <p>صُنع بكل تقدير للاسطوره والمبرمج فيــصل 🎂</p>
+        </footer>
+    </div>
+
+    <div id="gift-modal" class="modal-overlay hidden">
+        <div class="modal-wrapper">
+            <div class="modal-glow"></div>
+            <button id="close-modal-btn" class="close-btn" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-content">
+                <div class="gift-badge-container">
+                    <span class="modal-gift-number">هدية #<span id="modal-gift-id">1</span></span>
+                </div>
+                
+                <div class="quote-section">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <p id="modal-quote" class="gift-quote"></p>
+                </div>
+                <div class="omaima-song-link-section">
+                    <i class="fa-solid fa-music song-icon"></i>
+                    <div class="song-wrapper">
+                        <a id="modal-song-link" href="#" target="_blank" class="song-label-link">
+                            أغنية اليوم 🎵 <i class="fa-solid fa-circle-play play-mini-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <hr class="modal-divider">
+                
+                <div class="game-section">
+                    <div class="game-header">
+                        <i class="fa-solid fa-gamepad game-icon"></i>
+                        <div>
+                            <h3 id="modal-game-title" class="game-title">اسم اللعبة</h3>
+                            <span id="modal-game-genre" class="game-genre-badge">تصنيف اللعبة</span>
+                        </div>
+                    </div>
+                    
+                    <p id="modal-game-desc" class="game-description">وصف للعبه</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="audio.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

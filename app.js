@@ -1,0 +1,680 @@
+const giftsData = [
+    {
+        id: 1,
+        quote: "كل بداية جديدة فيها خير واجد، تفاءل بالخير دايم وتذكر إن كل يوم فرصة جديدة تكتب فيها قصة نجاحك!",
+        omaimaSong: {
+            title: "ألفين باب",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+ألفين+باب"
+        },
+        game: {
+            title: "Lethal Company",
+            genre: "رعب بقاء كوميدي / تعاوني",
+            desc: "اللعبة ذي تجنن للضحك مع أخوياك! تجمعكم عشان تجمعون خردة من كواكب غامضة ومليانة مخاطر مرعبة. بتعطيكم مواقف كوميدية وصرقعة أسطورية مستحيل تنسونها."
+        }
+    },
+    {
+        id: 2,
+        quote: "أنت بطل قصتك، لا تخلي أي عقبة توقفك عن حلمك، الصعاب هي اللي تصنع القوة الحقيقية وتصقلك.",
+        omaimaSong: {
+            title: "صاحي إنت",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+صاحي+إنت"
+        },
+        game: {
+            title: "Elden Ring",
+            genre: "أكشن وتقمص أدوار / عالم مفتوح",
+            desc: "تحفة فنية متكاملة وتحدي حقيقي. صعوبة قتال الزعماء وعظمة العالم المفتوح بتعيشك جو مغامرة يشد الأعصاب، وكل انتصار فيها له طعم فوز عظيم."
+        }
+    },
+    {
+        id: 3,
+        quote: "واجه مخاوفك ولا تخاف، ترى ورا كل تحدي وصعوبة قوة حقيقية تكتشفها في نفسك وتخليك أقوى.",
+        omaimaSong: {
+            title: "البكى راحة",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+البكى+راحة"
+        },
+        game: {
+            title: "Phasmophobia",
+            genre: "رعب نفسي وتحقيق تعاوني",
+            desc: "لعبة تحقيق ورعب أسطورية تعتمد على مايكروفونك للتحدث مع الأشباح وكشف نوعها. اللعب مع أخوياك فيها مليان توتر وصراخ وضحك في نفس الوقت."
+        }
+    },
+    {
+        id: 4,
+        quote: "ابنِ أحلامك حبة حبة وبكل حب، الأشياء الرهيبة دايم تاخذ وقتها عشان تكتمل وتظهر بأحسن صورة.",
+        omaimaSong: {
+            title: "خاطرك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+خاطرك"
+        },
+        game: {
+            title: "Minecraft",
+            genre: "بقاء وبناء إبداعي / رملية",
+            desc: "عالم من الإبداع والنجاة لا ينتهي. تقدر تبني وتستكشف لحالك أو تسوي سيرفر خاص مع أخوياك، وتبدعون في بناء عوالمكم الخاصة وتحديات البقاء الأسطورية."
+        }
+    },
+    {
+        id: 5,
+        quote: "شغل الجماعة والتركيز والتخطيط الذكي هم سر الفوز في أي معركة تخوضها، سواء باللعب أو بالحياة.",
+        omaimaSong: {
+            title: "منهو غيرك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+منهو+غيرك"
+        },
+        game: {
+            title: "Valorant",
+            genre: "تصويب تكتيكي تنافسي",
+            desc: "الإثارة والسرعة التكتيكية! اللعب التنافسي ومباريات الرانكد الحماسية مع أخوياك ولقطات الكلات الرهيبة بتخليك تعيش طاقة حماس وتحدي عالية جداً."
+        }
+    },
+    {
+        id: 6,
+        quote: "الفشل مو نهاية الطريق، هو مجرد خطوة تعلمك كيف تضبط المرة الجاية، واصل التجربة يا وحش ولا توقف!",
+        omaimaSong: {
+            title: "أنا شاريك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+أنا+شاريك"
+        },
+        game: {
+            title: "Hades II",
+            genre: "أكشن روجلايك / قتال سريع",
+            desc: "رتم قتال سريع جداً وموسيقى ملحمية تخليك تدمنها. كل محاولة هروب وتجربة بناء مهارات جديدة (Builds) بتعطيك تجربة لعب متجددة وحماسية ما تمل منها."
+        }
+    },
+    {
+        id: 7,
+        quote: "الناس الطيبة والقلوب النظيفة والتعاون هم أحسن شي يزين رحلتنا بالدنيا ويعاونا نعدي الصعب.",
+        omaimaSong: {
+            title: "معادلة صعبة",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+معادلة+صعبة"
+        },
+        game: {
+            title: "It Takes Two",
+            genre: "مغامرات ومنصات تعاونية شاشتين",
+            desc: "لعبة العام للتعاون الثنائي. تلعبها مع صديقك لحل الألغاز المبتكرة وخوض مغامرة مليانة ضحك وتحديات منوعة، والتعاون فيها هو سر الفوز المتكامل."
+        }
+    },
+    {
+        id: 8,
+        quote: "الأعماق والمجهول فيها دايم أحسن الفرص، استكشف دنيتك بفضول ولا تهاب شي، فالكنوز مخفية بالعمق.",
+        omaimaSong: {
+            title: "أبوس راسك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+أبوس+راسك"
+        },
+        game: {
+            title: "Subnautica",
+            genre: "بقاء واستكشاف أعماق البحار",
+            desc: "رحلة نجاة مذهلة في أعماق بحر فضائي غامض. بناء القواعد المائية ومواجهة كائنات مرعبة غريبة بيعطيك شعور استكشاف مذهل ومرعب بنفس الوقت."
+        }
+    },
+    {
+        id: 9,
+        quote: "النجاة مو بس إنك تنحاش، النجاة إنك تفكر بروقان وتخطط صح وتثبت في الأوقات الصعبة والحرجة.",
+        omaimaSong: {
+            title: "إذا تسمحلي",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+إذا+تسمحلي"
+        },
+        game: {
+            title: "Dead by Daylight",
+            genre: "رعب نجاة غير متكافئ (4 ضد 1)",
+            desc: "توتر ومطاردات تحبس الأنفاس! تقدر تلعب كقاتل تطارد الناجين، أو تتعاون مع أخوياك للهروب وإصلاح المولدات في لحظات مصيرية مشدودة."
+        }
+    },
+    {
+        id: 10,
+        quote: "قراراتك اليوم هي اللي تسوي بكرا، فكر بقلبك وعقلك وامش ورا الشي اللي يسعدك ويرضي ضميرك.",
+        omaimaSong: {
+            title: "أنا الجسر",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+أنا+الجسر"
+        },
+        game: {
+            title: "Detroit: Become Human",
+            genre: "دراما تفاعلية وقصصية غنية",
+            desc: "قصة سينمائية عميقة وتفاعلية تعتمد بالكامل على قراراتك. كل خيار تتخذه بيغير مسار القصة ويحدد مصير الشخصيات، وتجربتها فريدة وتشدك للنهاية."
+        }
+    },
+    {
+        id: 11,
+        quote: "حتى لو الدنيا زحمة وصجة، خلك دايم على طبيعتك وتفردك اللي يميزك عن غيرك ويخليك مميز.",
+        omaimaSong: {
+            title: "تركتك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+تركتك"
+        },
+        game: {
+            title: "Cyberpunk 2077",
+            genre: "تقمص أدوار وأكشن / خيال علمي",
+            desc: "عالم مستقبلي مذهل ورسومات خارقة في مدينة نايت سيتي على جهازك الـ PC. القصة العميقة وتفاصيل العالم بتخليك تندمج في اللعب لساعات وساعات."
+        }
+    },
+    {
+        id: 12,
+        quote: "دور على الحقيقة بذكاء، وثق بإحساسك وخلك فطن للي حولك واقرأ الشخصيات بذكائك المعتاد.",
+        omaimaSong: {
+            title: "تذكرني",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+تذكرني"
+        },
+        game: {
+            title: "Among Us",
+            genre: "خداع وتواصل اجتماعي / كاجوال",
+            desc: "لعبة الشكوك والذكاء الكلاسيكية مع الشلة. النقاشات الكوميدية والاتهامات المتبادلة لكشف المخادع (Imposter) بتعطيكم جو ضحك وصرقعة ما يمل منه."
+        }
+    },
+    {
+        id: 13,
+        quote: "الدنيا ذي عبارة عن مسرح، اختر دايم الدور اللي يفرح الناس وينشر الطاقة الحلوة والضحكة الصادقة.",
+        omaimaSong: {
+            title: "أما أكون",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+أما+أكون"
+        },
+        game: {
+            title: "GTA V Roleplay",
+            genre: "تقمص شخصيات وحياة واقعية",
+            desc: "تقمص الشخصيات في عالم مفتوح وحياة واقعية كاملة (RP). كتابة قصة شخصيتك والتفاعل مع الآخرين داخل السيرفر بيعيشك تجربة كوميدية ودرامية أسطورية."
+        }
+    },
+    {
+        id: 14,
+        quote: "الهدوء والرضا يعطونك راحة بال ما تتقدر بذهب، خذ الأمور بروقان وسهالة وخلي قلبك مرتاح دايم.",
+        omaimaSong: {
+            title: "يا غايب",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+يا+غايب"
+        },
+        game: {
+            title: "Stardew Valley",
+            genre: "محاكاة زراعية واجتماعية هادئة",
+            desc: "تجربة روقان وبناء مزرعتك الخاصة من الصفر. تفاصيل الزراعة وتربية الحيوانات مع الموسيقى الهادئة بتعطيك شعور راحة واسترخاء بعد يوم طويل."
+        }
+    },
+    {
+        id: 15,
+        quote: "ورا كل مشكلة عقبة حل ذكي ومبتكر، بس غير زاوية شوفك للموضوع وبتلقى المخرج مفتوح قدامك.",
+        omaimaSong: {
+            title: "السكوت",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+السكوت"
+        },
+        game: {
+            title: "Portal 2",
+            genre: "ألغاز وفيزياء تعاونية",
+            desc: "تحديات ذكاء وألغاز فيزيائية أسطورية عبر البوابات. اللعب التعاوني مع صديق يتطلب قمة التنسيق والتفاهم وبيصنع مواقف مضحكة وحلول عبقرية."
+        }
+    },
+    {
+        id: 16,
+        quote: "المغامرة بالبحر أحلى بكثير لما يكونون معاك أخوياك، طاقم مخلص يشاركك الضحك وتحديات الأمواج الكبيرة.",
+        omaimaSong: {
+            title: "فدوة لك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+فدوة+لك"
+        },
+        game: {
+            title: "Sea of Thieves",
+            genre: "مغامرات قراصنة وعالم بحري مفتوح",
+            desc: "عالم البحار المفتوح والكنوز والقرصنة! خذ دور القرصان وقد سفينتك مع أخوياك، وحاربوا وحوش البحر والسفن الأخرى في جو تعاوني حماسي رهيب."
+        }
+    },
+    {
+        id: 17,
+        quote: "السرعة والدقة مع بعض هم اللي يسوون الفرق، ركز على هدفك وسدد ضربتك بكل ثقة وإيمان بمهارتك الرهيبة.",
+        omaimaSong: {
+            title: "بياع كذاب",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+بياع+كذاب"
+        },
+        game: {
+            title: "Rocket League",
+            genre: "رياضة سيارات وكرة قدم تنافسية",
+            desc: "حماس وسرعة خارقة تجمع بين مهارة قيادة السيارات وكرة القدم التنافسية. الطيران وتحديات المباريات السريعة بتخلي اللعب مليان حماس ومهارة عالية."
+        }
+    },
+    {
+        id: 18,
+        quote: "في اللحظات الصعبة والمواقف القاسية يبين معدنك الأصيل الطيب، خلك قوي ومستمر ولا تتخلى عن قيمك.",
+        omaimaSong: {
+            title: "الين اليوم",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+الين+اليوم"
+        },
+        game: {
+            title: "Rust",
+            genre: "نجاة وبقاء جماعي / بناء قواعد وعصابات",
+            desc: "بقاء ونجاة في عالم قاسي وتوتر مستمر! بناء القواعد، جمع الموارد، وغزو قواعد الآخرين مع نسج تحالفات وخيانات بيخلي كل لحظة فيها قمة الأدرينالين والتحدي."
+        }
+    },
+    {
+        id: 19,
+        quote: "التخطيط الاستراتيجي وقراءة الخطوات الجاية بذكاء يخلونك تفوز على أي شي يوقف بوجهك مهما بدا صعب.",
+        omaimaSong: {
+            title: "أخافك",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+أخافك"
+        },
+        game: {
+            title: "Slay the Spire",
+            genre: "بناء بطاقات استراتيجي / روجلايك",
+            desc: "بناء بطاقات استراتيجي وتفكير عميق. كل قرار في اختيار الكروت وبناء مجموعتك بيحدد مصيرك في صعود البرج الغامض، لعبة إدمانية وتحدي ذهني رهيب."
+        }
+    },
+    {
+        id: 20,
+        quote: "بالشدة يبين تماسك الفريق وتفاهمهم، وهو اللي ينجيك من أي ورطة أو خطر يهددكم.",
+        omaimaSong: {
+            title: "سكتة",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+سكتة"
+        },
+        game: {
+            title: "Left 4 Dead 2",
+            genre: "تصويب زومبي تعاوني كلاسيكي",
+            desc: "المتعة التعاونية الكلاسيكية في محاربة حشود الزومبي! اللعب الجماعي مع الشلة وتنسيق الهرب والنجاة بيعطيكم لحظات حماس وصراخ وضحك لا ينتهي."
+        }
+    },
+    {
+        id: 21,
+        quote: "حتى لو الدنيا ظلمة، دور على النور الصغير اللي يوجهك للصح وخلك دايم متفائل وبكرا أحسن إن شاء الله.",
+        omaimaSong: {
+            title: "خاف الله",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+خاف+الله"
+        },
+        game: {
+            title: "Little Nightmares II",
+            genre: "منصات رعب نفسي وألغاز أجواء سينمائية",
+            desc: "أجواء رعب سينمائي وألغاز مذهلة ومخيفة. الهروب من الكائنات المشوهة وحل ألغاز العالم الكئيب بيخليك تعيش تجربة غامرة ومشدودة الأعصاب طوال اللعب."
+        }
+    },
+    {
+        id: 22,
+        quote: "أنت اللي تبني مستقبلك، خطط ورتب لغد رهيب ومشرق تفتخر فيه وتفرح من حولك به.",
+        omaimaSong: {
+            title: "كل عاشق",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+كل+عاشق"
+        },
+        game: {
+            title: "Cities: Skylines II",
+            genre: "بناء وتخطيط مدن ومحاكاة اقتصادية",
+            desc: "قمة الإبداع والتخطيط الهندسي! ابدأ ببناء مدينتك الضخمة من الصفر، وخطط الشوارع وحل مشاكل المرور والخدمات لتبني عاصمة أحلامك المتكاملة."
+        }
+    },
+    {
+        id: 23,
+        quote: "الرحلة والذكريات الحلوة اللي عشناها هي اللي تبقى بالقلب دايم، استمتع بكل لحظة تعيشها وصنع ذكريات رهيبة.",
+        omaimaSong: {
+            title: "ما نقصني",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+ما+نقصني"
+        },
+        game: {
+            title: "Red Dead Redemption 2",
+            genre: "عالم مفتوح مغامرات وأكشن سينمائي",
+            desc: "واحدة من أعظم القصص والرسوم البصرية في تاريخ الجيمز. عيش حياة الكاوبوي آرثر مورغان في عالم مفتوح واقعي بشكل لا يصدق ومليء بالمغامرات الأسطورية."
+        }
+    },
+    {
+        id: 24,
+        quote: "النجاح الحقيقي والبهجة الحقيقية يجون لما تسوي محتوى يسعد الناس ويرسم الضحكة على وجيههم الكريمة.",
+        omaimaSong: {
+            title: "خذني على قد قلبي",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+خذني+على+قد+قلبي"
+        },
+        game: {
+            title: "Content Warning",
+            genre: "رعب كوميدي ومحاكاة تصوير يوتيوب",
+            desc: "لعبة رعب كوميدية تطلب منك تصوير وحوش مرعبة مع أخوياك لصناعة مقاطع فيديو كوميدية! فكرتها المبتكرة بتعطيكم مواقف ضحك هستيري وجلطات غير متوقعة."
+        }
+    },
+    {
+        id: 25,
+        quote: "لا تخلي كل شي للصدفة والحظ، احسبها صح وخذ قرارك بثقة وعزيمة وبإذن الله تضبط معاك.",
+        omaimaSong: {
+            title: "تخيل",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+تخيل"
+        },
+        game: {
+            title: "Buckshot Roulette",
+            genre: "رعب نفسي وإثارة طاولة استراتيجية",
+            desc: "لعبة تحدي وذكاء تحبس الأنفاس ضد الذكاء الاصطناعي. تعتمد على الحسابات السريعة، الحظ، والتخطيط للنجاة في مواجهة جولات بندقية شوزن خطيرة وسريعة."
+        }
+    },
+    {
+        id: 26,
+        quote: "انشر الخير والإيجابية والحماس وين ما رحت، وخلك السند اللي يحمي ويساعد الكل بالشدة والرخا.",
+        omaimaSong: {
+            title: "لا تسأل عيوني",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+لا+تسأل+عيوني"
+        },
+        game: {
+            title: "Helldivers 2",
+            genre: "تصويب تعاوني خيال علمي ملحمي",
+            desc: "معارك خيال علمي فوضوية وتعاونية حماسية جداً! القتال الجماعي لتطهير الكواكب والمواقف الكوميدية الناتجة عن الانفجارات العشوائية بتعطيكم متعة لعب خرافية."
+        }
+    },
+    {
+        id: 27,
+        quote: "القوة الحقيقية مو بالحجم ولا بالعضل، القوة بالإصرار والشجاعة اللي بقلبك عشان تسوي المستحيل وتكسر الصعاب.",
+        omaimaSong: {
+            title: "حكم القدر",
+            url: "https://www.youtube.com/results?search_query=أميمة+طالب+حكم+القدر"
+        },
+        game: {
+            title: "Hollow Knight",
+            genre: "مترويدفينيا استكشاف ومنصات كلاسيكية",
+            desc: "استكشاف غامض ورسم يدوي مبهر وموسيقى ساحرة. مواجهة الزعماء الأقوياء وتطوير مهارات الفارس في عالم الحشرات الضائعة بيعطيك متعة تحدي عظيمة وإدمانية."
+        }
+    }
+];
+
+const targetDate = new Date('2026-07-04T00:00:00');
+
+let openedGifts = [];
+
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+    constructor(x, y, isConfetti = false) {
+        this.x = x || Math.random() * canvas.width;
+        this.y = y || (x ? y : canvas.height + 20);
+        this.size = isConfetti ? Math.random() * 8 + 4 : Math.random() * 4 + 1;
+        this.speedX = isConfetti ? (Math.random() * 6 - 3) : (Math.random() * 1 - 0.5);
+        this.speedY = isConfetti ? (Math.random() * -10 - 3) : (Math.random() * -1.5 - 0.5);
+        this.gravity = isConfetti ? 0.25 : 0;
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 10 - 5;
+        
+        const colors = [
+            'rgba(168, 85, 247, ', // Purple
+            'rgba(236, 72, 153, ', // Pink
+            'rgba(234, 179, 8, ',  // Gold
+            'rgba(6, 182, 212, '   // Cyan
+        ];
+        this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+        this.alpha = isConfetti ? 1 : Math.random() * 0.5 + 0.2;
+        this.fadeSpeed = isConfetti ? Math.random() * 0.015 + 0.005 : 0;
+        this.isConfetti = isConfetti;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.speedY += this.gravity;
+        this.rotation += this.rotationSpeed;
+        
+        if (this.isConfetti) {
+            this.alpha -= this.fadeSpeed;
+        } else {
+            if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + 20;
+                this.speedY = Math.random() * -1.5 - 0.5;
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+        }
+    }
+
+    draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.fillStyle = this.colorBase + this.alpha + ')';
+        
+        if (this.isConfetti) {
+            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        } else {
+            ctx.beginPath();
+            ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+}
+
+function initParticles() {
+    particles = [];
+    const count = Math.min(60, Math.floor(window.innerWidth / 20));
+    for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+    }
+}
+initParticles();
+
+function createConfettiBurst(x, y) {
+    const burstCount = 60;
+    for (let i = 0; i < burstCount; i++) {
+        particles.push(new Particle(x, y, true));
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles = particles.filter(p => {
+        p.update();
+        p.draw();
+        return !p.isConfetti || p.alpha > 0;
+    });
+    
+    requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+
+const lockScreen = document.getElementById('lock-screen');
+const splashScreen = document.getElementById('splash-screen');
+const mainContent = document.getElementById('main-content');
+const timerUnlockBtn = document.getElementById('timer-unlock-btn');
+
+function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    
+    if (diff <= 0) {
+        document.getElementById('timer-days').textContent = '00';
+        document.getElementById('timer-hours').textContent = '00';
+        document.getElementById('timer-minutes').textContent = '00';
+        document.getElementById('timer-seconds').textContent = '00';
+        document.querySelector('.lock-hint').textContent = 'مبروك! خلص الوقت، اضغط الزر بالأسفل لفتح هداياك 😍🎉';
+        
+        if (timerUnlockBtn) {
+            timerUnlockBtn.classList.remove('locked-btn');
+        }
+        return;
+    }
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('timer-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('timer-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('timer-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('timer-seconds').textContent = String(seconds).padStart(2, '0');
+    
+    const isBypassed = localStorage.getItem('faisal_bypass_timer') === 'true';
+    if (isBypassed) {
+        document.querySelector('.lock-hint').innerHTML = '<strong>طور المعاينة مفعل: التايمر شغال، وتقدر تدخل بالضغط على الزر بالأسفل 🛠️</strong>';
+        if (timerUnlockBtn) {
+            timerUnlockBtn.classList.remove('locked-btn');
+        }
+    } else {
+        document.querySelector('.lock-hint').textContent = 'هداياك بتفتح هنا تلقائياً بـ 4 يوليو الساعة 12:00 ص تماماً! 🤫';
+    }
+}
+
+function checkTimer() {
+    if (window.location.search.includes('reset=true')) {
+        localStorage.removeItem('faisal_bypass_timer');
+    }
+    
+    if (window.location.search.includes('preview=true')) {
+        localStorage.setItem('faisal_bypass_timer', 'true');
+    }
+    
+    lockScreen.classList.remove('hidden');
+    splashScreen.classList.add('hidden');
+    mainContent.classList.add('hidden');
+    
+    updateCountdown();
+}
+
+timerUnlockBtn.addEventListener('click', (e) => {
+    const now = new Date();
+    const isBypassed = localStorage.getItem('faisal_bypass_timer') === 'true';
+    
+    if (now >= targetDate || isBypassed) {
+        musicBox.playChime(); 
+        createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
+        
+        lockScreen.classList.add('fade-out');
+        setTimeout(() => {
+            lockScreen.classList.add('hidden');
+            lockScreen.classList.remove('fade-out');
+            splashScreen.classList.remove('hidden');
+            mainContent.classList.add('hidden');
+        }, 800);
+    } else {
+        musicBox.playChime();
+        
+        const rect = timerUnlockBtn.getBoundingClientRect();
+        createConfettiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        
+        document.querySelector('.lock-hint').innerHTML = '<strong>توّ الوقت ما خلّص يا بطل! ارجع يوم 4 يوليو الساعة 12:00 ص تماماً 😉⏳</strong>';
+        setTimeout(() => {
+            if (new Date() < targetDate && localStorage.getItem('faisal_bypass_timer') !== 'true') {
+                document.querySelector('.lock-hint').textContent = 'هداياك بتفتح هنا تلقائياً بـ 4 يوليو الساعة 12:00 ص تماماً! 🤫';
+            }
+        }, 4000);
+    }
+});
+
+let timerInterval = setInterval(() => {
+    if (lockScreen.classList.contains('hidden')) {
+        clearInterval(timerInterval);
+    } else {
+        updateCountdown();
+    }
+}, 1000);
+
+const startBtn = document.getElementById('start-btn');
+const musicToggle = document.getElementById('music-toggle');
+const giftsGrid = document.getElementById('gifts-grid');
+const progressBar = document.getElementById('progress-bar');
+const giftsOpenedCount = document.getElementById('gifts-opened-count');
+
+const giftModal = document.getElementById('gift-modal');
+const modalGiftId = document.getElementById('modal-gift-id');
+const modalQuote = document.getElementById('modal-quote');
+const modalSongLink = document.getElementById('modal-song-link');
+const modalGameTitle = document.getElementById('modal-game-title');
+const modalGameGenre = document.getElementById('modal-game-genre');
+const modalGameDesc = document.getElementById('modal-game-desc');
+const closeModalBtn = document.getElementById('close-modal-btn');
+
+startBtn.addEventListener('click', () => {
+    musicBox.start();
+    
+    splashScreen.classList.add('fade-out');
+    setTimeout(() => {
+        splashScreen.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+        
+        createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
+    }, 800);
+});
+
+musicToggle.addEventListener('click', () => {
+    const playing = musicBox.toggle();
+    if (playing) {
+        musicToggle.classList.remove('muted');
+        musicToggle.innerHTML = '<i class="fa-solid fa-music"></i>';
+    } else {
+        musicToggle.classList.add('muted');
+        musicToggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }
+});
+
+function renderGifts() {
+    giftsGrid.innerHTML = '';
+    giftsData.forEach(gift => {
+        const isOpened = openedGifts.includes(gift.id);
+        const card = document.createElement('div');
+        card.className = `gift-card ${isOpened ? 'opened' : ''}`;
+        card.dataset.id = gift.id;
+        
+        card.innerHTML = `
+            <div class="gift-card-icon-container">
+                <i class="fa-solid ${isOpened ? 'fa-gift-open' : 'fa-gift'}"></i>
+            </div>
+            <span class="gift-card-number">${gift.id}</span>
+            <span class="gift-card-label">البطاقة 🎁</span>
+        `;
+        
+        card.addEventListener('click', (e) => openGift(gift.id, e));
+        giftsGrid.appendChild(card);
+    });
+    
+    updateProgress();
+}
+
+function updateProgress() {
+    const total = giftsData.length;
+    const openedCount = openedGifts.length;
+    const percent = (openedCount / total) * 100;
+    
+    progressBar.style.width = `${percent}%`;
+    giftsOpenedCount.textContent = openedCount;
+}
+
+function openGift(id, event) {
+    const gift = giftsData.find(g => g.id === id);
+    if (!gift) return;
+    
+    if (!openedGifts.includes(id)) {
+        openedGifts.push(id);
+        
+        const card = document.querySelector(`.gift-card[data-id="${id}"]`);
+        if (card) {
+            card.classList.add('opened');
+            const icon = card.querySelector('.gift-card-icon-container i');
+            if (icon) {
+                icon.className = 'fa-solid fa-gift-open';
+            }
+        }
+        
+        updateProgress();
+    }
+    
+    const rect = event.currentTarget.getBoundingClientRect();
+    const clickX = rect.left + rect.width / 2;
+    const clickY = rect.top + rect.height / 2; 
+    createConfettiBurst(clickX, clickY);
+    
+    musicBox.playChime();
+    
+    modalGiftId.textContent = gift.id;
+    modalQuote.textContent = gift.quote;
+    modalSongLink.href = gift.omaimaSong.url; 
+    modalGameTitle.textContent = gift.game.title;
+    modalGameGenre.textContent = gift.game.genre;
+    modalGameDesc.textContent = gift.game.desc;
+    
+    giftModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    giftModal.classList.add('hidden');
+    document.body.style.overflow = ''; 
+}
+
+closeModalBtn.addEventListener('click', closeModal);
+giftModal.addEventListener('click', (e) => {
+    if (e.target === giftModal) {
+        closeModal();
+    }
+});
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !giftModal.classList.contains('hidden')) {
+        closeModal();
+    }
+});
+
+checkTimer();
+renderGifts();
