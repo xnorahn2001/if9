@@ -6,10 +6,9 @@ const giftsData = [
             title: "ألفين باب",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+ألفين+باب"
         },
-        game: {
-            title: "Lethal Company",
-            genre: "رعب بقاء كوميدي / تعاوني",
-            desc: "اللعبة ذي تجنن للضحك مع أخوياك! تجمعكم عشان تجمعون خردة من كواكب غامضة ومليانة مخاطر مرعبة. بتعطيكم مواقف كوميدية وصرقعة أسطورية مستحيل تنسونها."
+        riddle: {
+            question: "ما هو الشيء الذي يكتب ولا يقرأ؟",
+            answer: "القلم ✏️"
         }
     },
     {
@@ -19,10 +18,9 @@ const giftsData = [
             title: "صاحي إنت",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+صاحي+إنت"
         },
-        game: {
-            title: "Elden Ring",
-            genre: "أكشن وتقمص أدوار / عالم مفتوح",
-            desc: "تحفة فنية متكاملة وتحدي حقيقي. صعوبة قتال الزعماء وعظمة العالم المفتوح بتعيشك جو مغامرة يشد الأعصاب، وكل انتصار فيها له طعم فوز عظيم."
+        riddle: {
+            question: "ما هو الشيء الذي كلما أخذت منه كبر وكلما أضفت إليه صغر؟",
+            answer: "الحفرة 🕳️"
         }
     },
     {
@@ -32,10 +30,9 @@ const giftsData = [
             title: "البكى راحة",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+البكى+راحة"
         },
-        game: {
-            title: "Phasmophobia",
-            genre: "رعب نفسي وتحقيق تعاوني",
-            desc: "لعبة تحقيق ورعب أسطورية تعتمد على مايكروفونك للتحدث مع الأشباح وكشف نوعها. اللعب مع أخوياك فيها مليان توتر وصراخ وضحك في نفس الوقت."
+        riddle: {
+            question: "ما هو الشيء الذي له أسنان ولا يعض؟",
+            answer: "المشط 💈"
         }
     },
     {
@@ -45,10 +42,9 @@ const giftsData = [
             title: "خاطرك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+خاطرك"
         },
-        game: {
-            title: "Minecraft",
-            genre: "بقاء وبناء إبداعي / رملية",
-            desc: "عالم من الإبداع والنجاة لا ينتهي. تقدر تبني وتستكشف لحالك أو تسوي سيرفر خاص مع أخوياك، وتبدعون في بناء عوالمكم الخاصة وتحديات البقاء الأسطورية."
+        riddle: {
+            question: "ما هو الشيء الذي اسمه على لونه؟",
+            answer: "البيضة أو البرتقال 🍊"
         }
     },
     {
@@ -58,10 +54,9 @@ const giftsData = [
             title: "منهو غيرك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+منهو+غيرك"
         },
-        game: {
-            title: "Valorant",
-            genre: "تصويب تكتيكي تنافسي",
-            desc: "الإثارة والسرعة التكتيكية! اللعب التنافسي ومباريات الرانكد الحماسية مع أخوياك ولقطات الكلات الرهيبة بتخليك تعيش طاقة حماس وتحدي عالية جداً."
+        riddle: {
+            question: "يسير بلا رجلين ولا يدخل إلا بالأذنين، ما هو؟",
+            answer: "الصوت 🔊"
         }
     },
     {
@@ -71,10 +66,9 @@ const giftsData = [
             title: "أنا شاريك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+أنا+شاريك"
         },
-        game: {
-            title: "Hades II",
-            genre: "أكشن روجلايك / قتال سريع",
-            desc: "رتم قتال سريع جداً وموسيقى ملحمية تخليك تدمنها. كل محاولة هروب وتجربة بناء مهارات جديدة (Builds) بتعطيك تجربة لعب متجددة وحماسية ما تمل منها."
+        riddle: {
+            question: "ما هو الشيء الذي تراه في الليل ثلاث مرات وفي النهار مرة واحدة؟",
+            answer: "حرف اللام 🌙"
         }
     },
     {
@@ -84,10 +78,9 @@ const giftsData = [
             title: "معادلة صعبة",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+معادلة+صعبة"
         },
-        game: {
-            title: "It Takes Two",
-            genre: "مغامرات ومنصات تعاونية شاشتين",
-            desc: "لعبة العام للتعاون الثنائي. تلعبها مع صديقك لحل الألغاز المبتكرة وخوض مغامرة مليانة ضحك وتحديات منوعة، والتعاون فيها هو سر الفوز المتكامل."
+        riddle: {
+            question: "ابن أمك وابن أبيك، وليس بأختك ولا بأخيك، فمن يكون؟",
+            answer: "أنت نفسك 👤"
         }
     },
     {
@@ -97,10 +90,9 @@ const giftsData = [
             title: "أبوس راسك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+أبوس+راسك"
         },
-        game: {
-            title: "Subnautica",
-            genre: "بقاء واستكشاف أعماق البحار",
-            desc: "رحلة نجاة مذهلة في أعماق بحر فضائي غامض. بناء القواعد المائية ومواجهة كائنات مرعبة غريبة بيعطيك شعور استكشاف مذهل ومرعب بنفس الوقت."
+        riddle: {
+            question: "ما هو الشيء الذي مليء بالثقوب ولكنه يحتفظ بالماء؟",
+            answer: "الإسفنج 🧽"
         }
     },
     {
@@ -110,10 +102,9 @@ const giftsData = [
             title: "إذا تسمحلي",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+إذا+تسمحلي"
         },
-        game: {
-            title: "Dead by Daylight",
-            genre: "رعب نجاة غير متكافئ (4 ضد 1)",
-            desc: "توتر ومطاردات تحبس الأنفاس! تقدر تلعب كقاتل تطارد الناجين، أو تتعاون مع أخوياك للهروب وإصلاح المولدات في لحظات مصيرية مشدودة."
+        riddle: {
+            question: "ما هو الشيء الذي يمشي ويقف وليس له أرجل؟",
+            answer: "الساعة ⏰"
         }
     },
     {
@@ -123,10 +114,9 @@ const giftsData = [
             title: "أنا الجسر",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+أنا+الجسر"
         },
-        game: {
-            title: "Detroit: Become Human",
-            genre: "دراما تفاعلية وقصصية غنية",
-            desc: "قصة سينمائية عميقة وتفاعلية تعتمد بالكامل على قراراتك. كل خيار تتخذه بيغير مسار القصة ويحدد مصير الشخصيات، وتجربتها فريدة وتشدك للنهاية."
+        riddle: {
+            question: "ما هو الشيء الذي إذا غليته تجمد？",
+            answer: "البيض 🥚"
         }
     },
     {
@@ -136,10 +126,9 @@ const giftsData = [
             title: "تركتك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+تركتك"
         },
-        game: {
-            title: "Cyberpunk 2077",
-            genre: "تقمص أدوار وأكشن / خيال علمي",
-            desc: "عالم مستقبلي مذهل ورسومات خارقة في مدينة نايت سيتي على جهازك الـ PC. القصة العميقة وتفاصيل العالم بتخليك تندمج في اللعب لساعات وساعات."
+        riddle: {
+            question: "شيء موجود في السماء إذا أضفت إليه حرفاً أصبح في الأرض؟",
+            answer: "نجم (منجم) ⭐"
         }
     },
     {
@@ -149,10 +138,9 @@ const giftsData = [
             title: "تذكرني",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+تذكرني"
         },
-        game: {
-            title: "Among Us",
-            genre: "خداع وتواصل اجتماعي / كاجوال",
-            desc: "لعبة الشكوك والذكاء الكلاسيكية مع الشلة. النقاشات الكوميدية والاتهامات المتبادلة لكشف المخادع (Imposter) بتعطيكم جو ضحك وصرقعة ما يمل منه."
+        riddle: {
+            question: "ما هو الشيء الذي يتحدث جميع لغات العالم؟",
+            answer: "صدى الصوت 🗣️"
         }
     },
     {
@@ -162,10 +150,9 @@ const giftsData = [
             title: "أما أكون",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+أما+أكون"
         },
-        game: {
-            title: "GTA V Roleplay",
-            genre: "تقمص شخصيات وحياة واقعية",
-            desc: "تقمص الشخصيات في عالم مفتوح وحياة واقعية كاملة (RP). كتابة قصة شخصيتك والتفاعل مع الآخرين داخل السيرفر بيعيشك تجربة كوميدية ودرامية أسطورية."
+        riddle: {
+            question: "ما هو الشيء الذي كلما طال قصر؟",
+            answer: "العمر أو الشمعة 🕯️"
         }
     },
     {
@@ -175,10 +162,9 @@ const giftsData = [
             title: "يا غايب",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+يا+غايب"
         },
-        game: {
-            title: "Stardew Valley",
-            genre: "محاكاة زراعية واجتماعية هادئة",
-            desc: "تجربة روقان وبناء مزرعتك الخاصة من الصفر. تفاصيل الزراعة وتربية الحيوانات مع الموسيقى الهادئة بتعطيك شعور راحة واسترخاء بعد يوم طويل."
+        riddle: {
+            question: "يتحرك دائماً حولك ولكنه لا يرى، ما هو؟",
+            answer: "الهواء 💨"
         }
     },
     {
@@ -188,10 +174,9 @@ const giftsData = [
             title: "السكوت",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+السكوت"
         },
-        game: {
-            title: "Portal 2",
-            genre: "ألغاز وفيزياء تعاونية",
-            desc: "تحديات ذكاء وألغاز فيزيائية أسطورية عبر البوابات. اللعب التعاوني مع صديق يتطلب قمة التنسيق والتفاهم وبيصنع مواقف مضحكة وحلول عبقرية."
+        riddle: {
+            question: "ما هو الشيء الذي إذا لمسته صاح؟",
+            answer: "الجرس 🔔"
         }
     },
     {
@@ -201,10 +186,9 @@ const giftsData = [
             title: "فدوة لك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+فدوة+لك"
         },
-        game: {
-            title: "Sea of Thieves",
-            genre: "مغامرات قراصنة وعالم بحري مفتوح",
-            desc: "عالم البحار المفتوح والكنوز والقرصنة! خذ دور القرصان وقد سفينتك مع أخوياك، وحاربوا وحوش البحر والسفن الأخرى في جو تعاوني حماسي رهيب."
+        riddle: {
+            question: "أخت خالتك وليست خالتك، فمن هي؟",
+            answer: "أمك ❤️"
         }
     },
     {
@@ -214,10 +198,9 @@ const giftsData = [
             title: "بياع كذاب",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+بياع+كذاب"
         },
-        game: {
-            title: "Rocket League",
-            genre: "رياضة سيارات وكرة قدم تنافسية",
-            desc: "حماس وسرعة خارقة تجمع بين مهارة قيادة السيارات وكرة القدم التنافسية. الطيران وتحديات المباريات السريعة بتخلي اللعب مليان حماس ومهارة عالية."
+        riddle: {
+            question: "ما هو البيت الذي ليس فيه أبواب ولا نوافذ؟",
+            answer: "بيت الشعر 🎪"
         }
     },
     {
@@ -227,10 +210,9 @@ const giftsData = [
             title: "الين اليوم",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+الين+اليوم"
         },
-        game: {
-            title: "Rust",
-            genre: "نجاة وبقاء جماعي / بناء قواعد وعصابات",
-            desc: "بقاء ونجاة في عالم قاسي وتوتر مستمر! بناء القواعد، جمع الموارد، وغزو قواعد الآخرين مع نسج تحالفات وخيانات بيخلي كل لحظة فيها قمة الأدرينالين والتحدي."
+        riddle: {
+            question: "له رأس وليس له عين، وله إبرة وليس له خيط، ما هو؟",
+            answer: "الدبوس 📍"
         }
     },
     {
@@ -240,10 +222,9 @@ const giftsData = [
             title: "أخافك",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+أخافك"
         },
-        game: {
-            title: "Slay the Spire",
-            genre: "بناء بطاقات استراتيجي / روجلايك",
-            desc: "بناء بطاقات استراتيجي وتفكير عميق. كل قرار في اختيار الكروت وبناء مجموعتك بيحدد مصيرك في صعود البرج الغامض، لعبة إدمانية وتحدي ذهني رهيب."
+        riddle: {
+            question: "ما هو الشيء الذي يقرصك دون أن تراه؟",
+            answer: "الجوع 😋"
         }
     },
     {
@@ -253,10 +234,9 @@ const giftsData = [
             title: "سكتة",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+سكتة"
         },
-        game: {
-            title: "Left 4 Dead 2",
-            genre: "تصويب زومبي تعاوني كلاسيكي",
-            desc: "المتعة التعاونية الكلاسيكية في محاربة حشود الزومبي! اللعب الجماعي مع الشلة وتنسيق الهرب والنجاة بيعطيكم لحظات حماس وصراخ وضحك لا ينتهي."
+        riddle: {
+            question: "ما هو الشيء الذي يجري ولا يستطيع المشي؟",
+            answer: "الماء أو النهر 💧"
         }
     },
     {
@@ -266,10 +246,9 @@ const giftsData = [
             title: "خاف الله",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+خاف+الله"
         },
-        game: {
-            title: "Little Nightmares II",
-            genre: "منصات رعب نفسي وألغاز أجواء سينمائية",
-            desc: "أجواء رعب سينمائي وألغاز مذهلة ومخيفة. الهروب من الكائنات المشوهة وحل ألغاز العالم الكئيب بيخليك تعيش تجربة غامرة ومشدودة الأعصاب طوال اللعب."
+        riddle: {
+            question: "ما هو الشيء الذي إذا أكلته كله تستفيد، وإذا أكلت نصفه تموت؟",
+            answer: "السمسم (نصفه سم) 🥯"
         }
     },
     {
@@ -279,10 +258,9 @@ const giftsData = [
             title: "كل عاشق",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+كل+عاشق"
         },
-        game: {
-            title: "Cities: Skylines II",
-            genre: "بناء وتخطيط مدن ومحاكاة اقتصادية",
-            desc: "قمة الإبداع والتخطيط الهندسي! ابدأ ببناء مدينتك الضخمة من الصفر، وخطط الشوارع وحل مشاكل المرور والخدمات لتبني عاصمة أحلامك المتكاملة."
+        riddle: {
+            question: "ما هو الشيء الذي يحترق لكي يضيء للآخرين？",
+            answer: "الشمعة 🕯️"
         }
     },
     {
@@ -292,10 +270,9 @@ const giftsData = [
             title: "ما نقصني",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+ما+نقصني"
         },
-        game: {
-            title: "Red Dead Redemption 2",
-            genre: "عالم مفتوح مغامرات وأكشن سينمائي",
-            desc: "واحدة من أعظم القصص والرسوم البصرية في تاريخ الجيمز. عيش حياة الكاوبوي آرثر مورغان في عالم مفتوح واقعي بشكل لا يصدق ومليء بالمغامرات الأسطورية."
+        riddle: {
+            question: "ما هو الشيء الذي له عين واحدة ولكنه لا يرى بها؟",
+            answer: "الإبرة 🪡"
         }
     },
     {
@@ -305,10 +282,9 @@ const giftsData = [
             title: "خذني على قد قلبي",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+خذني+على+قد+قلبي"
         },
-        game: {
-            title: "Content Warning",
-            genre: "رعب كوميدي ومحاكاة تصوير يوتيوب",
-            desc: "لعبة رعب كوميدية تطلب منك تصوير وحوش مرعبة مع أخوياك لصناعة مقاطع فيديو كوميدية! فكرتها المبتكرة بتعطيكم مواقف ضحك هستيري وجلطات غير متوقعة."
+        riddle: {
+            question: "ما هو الشيء الذي يسمع بلا أذن ويتكلم بلا لسان؟",
+            answer: "الهاتف (أو التلفون) 📞"
         }
     },
     {
@@ -318,10 +294,9 @@ const giftsData = [
             title: "تخيل",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+تخيل"
         },
-        game: {
-            title: "Buckshot Roulette",
-            genre: "رعب نفسي وإثارة طاولة استراتيجية",
-            desc: "لعبة تحدي وذكاء تحبس الأنفاس ضد الذكاء الاصطناعي. تعتمد على الحسابات السريعة، الحظ، والتخطيط للنجاة في مواجهة جولات بندقية شوزن خطيرة وسريعة."
+        riddle: {
+            question: "ما هو الكائن الذي ينام مرتدياً حذاءه ولا يفارقه؟",
+            answer: "الحصان 🐴"
         }
     },
     {
@@ -331,10 +306,9 @@ const giftsData = [
             title: "لا تسأل عيوني",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+لا+تسأل+عيوني"
         },
-        game: {
-            title: "Helldivers 2",
-            genre: "تصويب تعاوني خيال علمي ملحمي",
-            desc: "معارك خيال علمي فوضوية وتعاونية حماسية جداً! القتال الجماعي لتطهير الكواكب والمواقف الكوميدية الناتجة عن الانفجارات العشوائية بتعطيكم متعة لعب خرافية."
+        riddle: {
+            question: "ما هو الشيء الذي يملك أصابع ولكنه لا يملك لحماً ولا عظاماً؟",
+            answer: "القفاز 🧤"
         }
     },
     {
@@ -344,10 +318,9 @@ const giftsData = [
             title: "حكم القدر",
             url: "https://www.youtube.com/results?search_query=أميمة+طالب+حكم+القدر"
         },
-        game: {
-            title: "Hollow Knight",
-            genre: "مترويدفينيا استكشاف ومنصات كلاسيكية",
-            desc: "استكشاف غامض ورسم يدوي مبهر وموسيقى ساحرة. مواجهة الزعماء الأقوياء وتطوير مهارات الفارس في عالم الحشرات الضائعة بيعطيك متعة تحدي عظيمة وإدمانية."
+        riddle: {
+            question: "شيء يولد كبيراً ويموت صغيراً، ما هو؟",
+            answer: "الشمعة 🕯️"
         }
     }
 ];
@@ -355,6 +328,7 @@ const giftsData = [
 const targetDate = new Date('2026-07-04T00:00:00');
 
 let openedGifts = [];
+let timerClicksCount = 0;
 
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
@@ -460,6 +434,7 @@ const mainContent = document.getElementById('main-content');
 const timerUnlockBtn = document.getElementById('timer-unlock-btn');
 
 function updateCountdown() {
+    if (timerClicksCount > 0) return; // Don't overwrite the click countdown text
     const now = new Date();
     const diff = targetDate - now;
     
@@ -468,7 +443,7 @@ function updateCountdown() {
         document.getElementById('timer-hours').textContent = '00';
         document.getElementById('timer-minutes').textContent = '00';
         document.getElementById('timer-seconds').textContent = '00';
-        document.querySelector('.lock-hint').textContent = 'مبروك! خلص الوقت، اضغط الزر بالأسفل لفتح هداياك 😍🎉';
+        document.querySelector('.lock-hint').textContent = 'مبروك! خلص الوقت، اضغط الزر بالأسفل 27 مرة لفتح هداياك 😍🎉';
         
         if (timerUnlockBtn) {
             timerUnlockBtn.classList.remove('locked-btn');
@@ -488,7 +463,7 @@ function updateCountdown() {
     
     const isBypassed = localStorage.getItem('faisal_bypass_timer') === 'true';
     if (isBypassed) {
-        document.querySelector('.lock-hint').innerHTML = '<strong>طور المعاينة مفعل: التايمر شغال، وتقدر تدخل بالضغط على الزر بالأسفل 🛠️</strong>';
+        document.querySelector('.lock-hint').innerHTML = '<strong>طور المعاينة مفعل: اضغط الزر بالأسفل 27 مرة لتخطي التايمر والدخول 🛠️</strong>';
         if (timerUnlockBtn) {
             timerUnlockBtn.classList.remove('locked-btn');
         }
@@ -518,16 +493,41 @@ timerUnlockBtn.addEventListener('click', (e) => {
     const isBypassed = localStorage.getItem('faisal_bypass_timer') === 'true';
     
     if (now >= targetDate || isBypassed) {
-        musicBox.playChime(); 
-        createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
+        timerClicksCount++;
         
-        lockScreen.classList.add('fade-out');
-        setTimeout(() => {
-            lockScreen.classList.add('hidden');
-            lockScreen.classList.remove('fade-out');
-            splashScreen.classList.remove('hidden');
-            mainContent.classList.add('hidden');
-        }, 800);
+        if (timerClicksCount < 27) {
+            musicBox.playChime();
+            const rect = timerUnlockBtn.getBoundingClientRect();
+            createConfettiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            
+            const remaining = 27 - timerClicksCount;
+            let countText = '';
+            if (remaining === 1) {
+                countText = 'باقي ضغطة واحدة فقط! 😱';
+            } else if (remaining === 2) {
+                countText = 'باقي ضغطتين! ✌️';
+            } else if (remaining <= 10) {
+                countText = `باقي ${remaining} ضغطات! ⏳`;
+            } else {
+                countText = `باقي ${remaining} ضغطة! ⏳`;
+            }
+            
+            document.querySelector('.lock-hint').innerHTML = `<strong>كفووو! اضغط الزر بالأسفل 27 مرة لفتح هداياك! (${countText}) 😍🎉</strong>`;
+            timerUnlockBtn.querySelector('span').textContent = `اضغطني! (باقي ${remaining})`;
+        } else {
+            // UNLOCK! Transition to the Splash Page
+            musicBox.playChime(); 
+            createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
+            timerUnlockBtn.querySelector('span').textContent = `تم الفتح! 🚀`;
+            
+            lockScreen.classList.add('fade-out');
+            setTimeout(() => {
+                lockScreen.classList.add('hidden');
+                lockScreen.classList.remove('fade-out');
+                splashScreen.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+            }, 800);
+        }
     } else {
         musicBox.playChime();
         
@@ -561,9 +561,9 @@ const giftModal = document.getElementById('gift-modal');
 const modalGiftId = document.getElementById('modal-gift-id');
 const modalQuote = document.getElementById('modal-quote');
 const modalSongLink = document.getElementById('modal-song-link');
-const modalGameTitle = document.getElementById('modal-game-title');
-const modalGameGenre = document.getElementById('modal-game-genre');
-const modalGameDesc = document.getElementById('modal-game-desc');
+const modalRiddleQuestion = document.getElementById('modal-riddle-question');
+const modalRiddleAnswer = document.getElementById('modal-riddle-answer');
+const revealAnswerBtn = document.getElementById('reveal-answer-btn');
 const closeModalBtn = document.getElementById('close-modal-btn');
 
 startBtn.addEventListener('click', () => {
@@ -650,9 +650,12 @@ function openGift(id, event) {
     modalGiftId.textContent = gift.id;
     modalQuote.textContent = gift.quote;
     modalSongLink.href = gift.omaimaSong.url; 
-    modalGameTitle.textContent = gift.game.title;
-    modalGameGenre.textContent = gift.game.genre;
-    modalGameDesc.textContent = gift.game.desc;
+    modalRiddleQuestion.textContent = gift.riddle.question;
+    modalRiddleAnswer.textContent = gift.riddle.answer;
+    
+    // Reset answer toggle state when opening the gift modal
+    modalRiddleAnswer.classList.add('hidden');
+    revealAnswerBtn.textContent = 'كشف الإجابة 🔓';
     
     giftModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -661,6 +664,9 @@ function openGift(id, event) {
 function closeModal() {
     giftModal.classList.add('hidden');
     document.body.style.overflow = ''; 
+    // Also reset answer toggle state when closing the modal
+    modalRiddleAnswer.classList.add('hidden');
+    revealAnswerBtn.textContent = 'كشف الإجابة 🔓';
 }
 
 closeModalBtn.addEventListener('click', closeModal);
@@ -673,6 +679,19 @@ giftModal.addEventListener('click', (e) => {
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !giftModal.classList.contains('hidden')) {
         closeModal();
+    }
+});
+
+// Event listener for revealing/hiding the riddle answer
+revealAnswerBtn.addEventListener('click', () => {
+    const isHidden = modalRiddleAnswer.classList.contains('hidden');
+    if (isHidden) {
+        modalRiddleAnswer.classList.remove('hidden');
+        revealAnswerBtn.textContent = 'إخفاء الإجابة 🔒';
+        musicBox.playChime(); // Play celebration chime on reveal
+    } else {
+        modalRiddleAnswer.classList.add('hidden');
+        revealAnswerBtn.textContent = 'كشف الإجابة 🔓';
     }
 });
 
