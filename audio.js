@@ -1,53 +1,55 @@
+// Dynamic Custom Audio Playlist Player using HTML5 Audio & Web Audio API for Chimes
 
 class BirthdayMusicBox {
     constructor() {
         this.audioCtx = null;
+        this.audioEl = null;
         this.isPlaying = false;
-        this.tempo = 110; 
-        this.nextNoteTime = 0.0;
-        this.noteIndex = 0;
-        this.timerId = null;
-      
-        this.melody = [
-            ['C', 4, 0.75], ['C', 4, 0.25], ['D', 4, 1.0], ['C', 4, 1.0], ['F', 4, 1.0], ['E', 4, 2.0], // Happy birthday to you
-            ['C', 4, 0.75], ['C', 4, 0.25], ['D', 4, 1.0], ['C', 4, 1.0], ['G', 4, 1.0], ['F', 4, 2.0], // Happy birthday to you
-            ['C', 4, 0.75], ['C', 4, 0.25], ['C', 5, 1.0], ['A', 4, 1.0], ['F', 4, 1.0], ['E', 4, 1.0], ['D', 4, 1.0], // Happy birthday dear Faisal
-            ['A#', 4, 0.75], ['A#', 4, 0.25], ['A', 4, 1.0], ['F', 4, 1.0], ['G', 4, 1.0], ['F', 4, 2.0], // Happy birthday to you
-            ['-', 0, 1.0] 
+        this.currentTrackIndex = 0;
+        
+        // Custom Tracks List (Can be expanded/modified when user sends files)
+        this.tracks = [
+            { id: 0, title: "صوتية فيصل 1 🎵", file: "tikdown.MP4" },
+            { id: 1, title: "صوتية فيصل 2 🎵", file: "tikdown 2.MP4" },
+            { id: 2, title: "صوتية فيصل 3 🎵", file: "v07044700000btr1gkclhqvnojahvqog.MP4" },
+            { id: 3, title: "صوتية فيصل 4 🎵", file: "v07044f00000btp2rf9uncpkid1vpcqg.MP4" }
         ];
 
         this.noteFreqs = {
-            'C': 261.63,
-            'C#': 277.18,
-            'D': 293.66,
-            'D#': 311.13,
-            'E': 329.63,
-            'F': 349.23,
-            'F#': 369.99,
-            'G': 392.00,
-            'G#': 415.30,
-            'A': 440.00,
-            'A#': 466.16,
-            'B': 493.88,
+            'C': 261.63, 'C#': 277.18, 'D': 293.66, 'D#': 311.13,
+            'E': 329.63, 'F': 349.23, 'F#': 369.99, 'G': 392.00,
+            'G#': 415.30, 'A': 440.00, 'A#': 466.16, 'B': 493.88,
             'C5': 523.25
         };
-    }
-
-    getFrequency(noteName, octave) {
-        if (noteName === '-') return 0;
-        
-        let freq = this.noteFreqs[noteName];
-        if (octave === 5 && noteName === 'C') {
-            return this.noteFreqs['C5'];
-        }
-        return freq;
     }
 
     init() {
         if (this.audioCtx) return;
         
+        // Web Audio API context for chimes
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
         this.audioCtx = new AudioContextClass();
+        
+        // HTML5 Audio element for background tracks
+        this.audioEl = new Audio();
+        this.audioEl.loop = true; // Loop current track by default
+        
+        // Load initial track
+        this.loadTrack(this.currentTrackIndex);
+    }
+
+    loadTrack(index) {
+        if (index < 0 || index >= this.tracks.length) return;
+        this.currentTrackIndex = index;
+        
+        const wasPlaying = this.isPlaying;
+        if (this.audioEl) {
+            this.audioEl.src = this.tracks[index].file;
+            this.audioEl.load();
+            if (wasPlaying) {
+                this.audioEl.play().catch(err => console.log("Audio play deferred until user interaction"));
+            }
+        }
     }
 
     start() {
@@ -59,75 +61,25 @@ class BirthdayMusicBox {
         if (this.isPlaying) return;
         
         this.isPlaying = true;
-        this.nextNoteTime = this.audioCtx.currentTime + 0.1;
-        this.noteIndex = 0;
-        
-        this.scheduler();
+        this.audioEl.play()
+            .then(() => {
+                // Audio started successfully
+            })
+            .catch(err => {
+                console.log("Audio play failed or deferred:", err);
+                this.isPlaying = false;
+            });
     }
 
     stop() {
         this.isPlaying = false;
-        if (this.timerId) {
-            clearTimeout(this.timerId);
+        if (this.audioEl) {
+            this.audioEl.pause();
         }
-    }
-
-    scheduler() {
-        if (!this.isPlaying) return;
-
-        while (this.nextNoteTime < this.audioCtx.currentTime + 0.3) {
-            this.scheduleNote(this.noteIndex, this.nextNoteTime);
-            this.advanceNote();
-        }
-        
-        this.timerId = setTimeout(() => this.scheduler(), 50);
-    }
-
-    advanceNote() {
-        const beatDuration = 60.0 / this.tempo;
-        const currentNote = this.melody[this.noteIndex];
-        const duration = currentNote[2] * beatDuration;
-        
-        this.nextNoteTime += duration;
-        this.noteIndex = (this.noteIndex + 1) % this.melody.length;
-    }
-
-    scheduleNote(index, time) {
-        const note = this.melody[index];
-        const noteName = note[0];
-        const octave = note[1];
-        const durationInBeats = note[2];
-        const beatDuration = 60.0 / this.tempo;
-        const duration = durationInBeats * beatDuration;
-
-        const freq = this.getFrequency(noteName, octave);
-        if (freq === 0) return; // Rest
-
-        const osc1 = this.audioCtx.createOscillator();
-        const osc2 = this.audioCtx.createOscillator(); 
-        const gainNode = this.audioCtx.createGain();
-
-        osc1.type = 'triangle';
-        osc1.frequency.value = freq;
-
-        osc2.type = 'sine';
-        osc2.frequency.value = freq * 2;
-        
-        gainNode.gain.setValueAtTime(0, time);
-        gainNode.gain.linearRampToValueAtTime(0.2, time + 0.01);
-        gainNode.gain.exponentialRampToValueAtTime(0.0001, time + duration - 0.05);
-
-        osc1.connect(gainNode);
-        osc2.connect(gainNode);
-        gainNode.connect(this.audioCtx.destination);
-
-        osc1.start(time);
-        osc2.start(time);
-        osc1.stop(time + duration);
-        osc2.stop(time + duration);
     }
 
     toggle() {
+        this.init();
         if (this.isPlaying) {
             this.stop();
             return false;
@@ -175,7 +127,7 @@ class BirthdayMusicBox {
         const now = this.audioCtx.currentTime;
         const notes = [349.23, 440.00, 523.25, 698.46, 523.25, 440.00, 349.23];
         notes.forEach((freq, idx) => {
-            const time = now + idx * 0.09; 
+            const time = now + idx * 0.09;
             
             const osc1 = this.audioCtx.createOscillator();
             const osc2 = this.audioCtx.createOscillator(); 
@@ -185,7 +137,7 @@ class BirthdayMusicBox {
             osc1.frequency.value = freq;
             
             osc2.type = 'sine';
-            osc2.frequency.value = freq / 2;
+            osc2.frequency.value = freq / 2; 
             
             gainNode.gain.setValueAtTime(0, time);
             gainNode.gain.linearRampToValueAtTime(0.15, time + 0.015);
@@ -203,4 +155,5 @@ class BirthdayMusicBox {
     }
 }
 
+// Global Music Box Instance
 const musicBox = new BirthdayMusicBox();

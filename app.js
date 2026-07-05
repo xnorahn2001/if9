@@ -553,6 +553,11 @@ let timerInterval = setInterval(() => {
 
 const startBtn = document.getElementById('start-btn');
 const musicToggle = document.getElementById('music-toggle');
+const audioPlaylist = document.getElementById('audio-playlist');
+const playlistItems = document.getElementById('playlist-items');
+const audioToast = document.getElementById('audio-instruction-toast');
+const closeToastBtn = document.getElementById('close-toast-btn');
+
 const giftsGrid = document.getElementById('gifts-grid');
 const progressBar = document.getElementById('progress-bar');
 const giftsOpenedCount = document.getElementById('gifts-opened-count');
@@ -566,6 +571,35 @@ const modalRiddleAnswer = document.getElementById('modal-riddle-answer');
 const revealAnswerBtn = document.getElementById('reveal-answer-btn');
 const closeModalBtn = document.getElementById('close-modal-btn');
 
+// Render playlist items dynamically
+function buildPlaylist() {
+    playlistItems.innerHTML = '';
+    musicBox.tracks.forEach((track, index) => {
+        const li = document.createElement('li');
+        li.textContent = track.title;
+        li.dataset.index = index;
+        if (musicBox.currentTrackIndex === index && musicBox.isPlaying) {
+            li.classList.add('active');
+        }
+        
+        li.addEventListener('click', () => {
+            // Remove active class from all
+            document.querySelectorAll('.playlist-items li').forEach(el => el.classList.remove('active'));
+            // Add to current
+            li.classList.add('active');
+            
+            // Load and play track
+            musicBox.isPlaying = true;
+            musicBox.loadTrack(index);
+            
+            // Update music toggle button style
+            musicToggle.classList.remove('muted');
+            musicToggle.innerHTML = '<i class="fa-solid fa-music"></i>';
+        });
+        playlistItems.appendChild(li);
+    });
+}
+
 startBtn.addEventListener('click', () => {
     musicBox.start();
     
@@ -575,17 +609,34 @@ startBtn.addEventListener('click', () => {
         mainContent.classList.remove('hidden');
         
         createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
+        
+        // Show instruction toast after 1.5 seconds
+        setTimeout(() => {
+            if (audioToast) {
+                audioToast.classList.remove('hidden');
+            }
+        }, 1500);
     }, 800);
 });
 
-musicToggle.addEventListener('click', () => {
-    const playing = musicBox.toggle();
-    if (playing) {
-        musicToggle.classList.remove('muted');
-        musicToggle.innerHTML = '<i class="fa-solid fa-music"></i>';
-    } else {
-        musicToggle.classList.add('muted');
-        musicToggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+// Toast controls
+if (closeToastBtn) {
+    closeToastBtn.addEventListener('click', () => {
+        audioToast.classList.add('hidden');
+    });
+}
+
+// Toggle playlist dropdown menu
+musicToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    buildPlaylist();
+    audioPlaylist.classList.toggle('hidden');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.audio-dropdown-container')) {
+        audioPlaylist.classList.add('hidden');
     }
 });
 

@@ -64,9 +64,19 @@
     </div>
 
     <div id="main-content" class="main-container hidden">
-        <button id="music-toggle" class="audio-control-btn" aria-label="Toggle Music">
-            <i class="fa-solid fa-music"></i>
-        </button>
+        <div class="audio-dropdown-container">
+            <button id="music-toggle" class="audio-control-btn" aria-label="Toggle Music">
+                <i class="fa-solid fa-music"></i>
+            </button>
+            <div id="audio-playlist" class="audio-dropdown-menu hidden">
+                <div class="playlist-header">
+                    <span>اختر الأغنية 🎵</span>
+                </div>
+                <ul class="playlist-items" id="playlist-items">
+                    <!-- Dynamic playlist goes here -->
+                </ul>
+            </div>
+        </div>
 
         <header class="app-header">
             <div class="profile-glow"></div>
@@ -139,6 +149,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Audio Instruction Toast -->
+    <div id="audio-instruction-toast" class="toast-notification hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-music toast-icon"></i>
+            <div class="toast-text">
+                <h4>اختر أغنية لتشغيلها 🎵</h4>
+                <p>اضغط على أيقونة النوتة الموسيقية بالزاوية واختر الأغنية اللي تبيها!</p>
+            </div>
+            <button id="close-toast-btn" class="toast-close" aria-label="Close Toast">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
     </div>
 
